@@ -18,13 +18,13 @@ from ..common.modules.logger import logger
 # =================================================================================================
 def heartbeat_receiver_worker(
     connection: mavutil.mavfile,
-    args,  # Place your own arguments here
-    # Add other necessary worker arguments here
+    controller: worker_controller.WorkerController
 ) -> None:
     """
     Worker process.
 
-    args... describe what the arguments are
+    connection is the MAVLink connection for communication between workers.
+    controller is how the main process communicates to this worker process.
     """
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -47,9 +47,9 @@ def heartbeat_receiver_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (heartbeat_receiver.HeartbeatReceiver)
+    heartbeat_receiver_instance = heartbeat_receiver.HeartbeatReceiver.create()
 
     # Main loop: do work.
-
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
