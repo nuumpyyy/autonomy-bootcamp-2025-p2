@@ -18,12 +18,14 @@ from ..common.modules.logger import logger
 # =================================================================================================
 def heartbeat_receiver_worker(
     connection: mavutil.mavfile,
-    controller: worker_controller.WorkerController
+    output_queue: queue_proxy_wrapper.QueueProxyWrapper,
+    controller: worker_controller.WorkerController,
 ) -> None:
     """
     Worker process.
 
     connection is the MAVLink connection for communication between workers.
+    output_queue is the data queue.
     controller is how the main process communicates to this worker process.
     """
     # =============================================================================================
@@ -47,9 +49,30 @@ def heartbeat_receiver_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (heartbeat_receiver.HeartbeatReceiver)
-    heartbeat_receiver_instance = heartbeat_receiver.HeartbeatReceiver.create()
+    heartbeat_receiver_instance = heartbeat_receiver.HeartbeatReceiver.create(
+        connection, local_logger
+    )
+    missed = 0  # number of missed heartbeats
 
     # Main loop: do work.
+    while not controller.is_exit_requested():
+        # block worker if pause has been requested
+        controller.check_pause()
+
+        # attempt to receive heartbeat message
+        msg = heartbeat_receiver_instance.run()
+
+        if not msg or msg.get_type() == "BAD_DATA":
+            local_logger.warning("Heartbeat message missed")
+            missed += 1
+        else:
+            missed = 0
+
+        if missed >= 5:
+            output_queue.queue.put("Disconnected")
+        else:
+            output_queue.queue.put("Connected")
+
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑

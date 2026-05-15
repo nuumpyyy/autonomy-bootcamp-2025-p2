@@ -1,0 +1,27 @@
+10:07:28: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/modules/common/modules/logger/logger_main_setup.py | setup_main_logger | 62] main logger initialized
+10:07:28: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | main | 112] Connected!
+10:07:28: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:29: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:30: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:30: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:31: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:32: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:32: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:33: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:34: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:35: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:36: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:37: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Disconnected
+10:07:38: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Disconnected
+10:07:39: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Disconnected
+10:07:40: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Disconnected
+10:07:41: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:42: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:42: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:43: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:44: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:44: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:45: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:46: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:47: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
+10:07:48: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 69] Status: Connected
