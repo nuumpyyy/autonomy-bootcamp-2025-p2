@@ -76,29 +76,26 @@ class Telemetry:
     def create(
         cls,
         connection: mavutil.mavfile,
-        args,  # Put your own arguments here
         local_logger: logger.Logger,
     ):
         """
         Falliable create (instantiation) method to create a Telemetry object.
         """
-        pass  # Create a Telemetry object
+        return cls(cls.__private_key, connection, local_logger)
 
     def __init__(
         self,
         key: object,
         connection: mavutil.mavfile,
-        args,  # Put your own arguments here
         local_logger: logger.Logger,
     ) -> None:
         assert key is Telemetry.__private_key, "Use create() method"
 
         # Do any intializiation here
+        self.connection = connection
+        self.local_logger = local_logger
 
-    def run(
-        self,
-        args,  # Put your own arguments here
-    ):
+    def run(self):
         """
         Receive LOCAL_POSITION_NED and ATTITUDE messages from the drone,
         combining them together to form a single TelemetryData object.
@@ -106,7 +103,35 @@ class Telemetry:
         # Read MAVLink message LOCAL_POSITION_NED (32)
         # Read MAVLink message ATTITUDE (30)
         # Return the most recent of both, and use the most recent message's timestamp
-        pass
+        start = time.time()
+        lpn = self.connection.recv_match(type="LOCAL_POSITION_NED", blocking=True, timeout=1)
+        if not lpn:
+            return False, None
+
+        elapsed = time.time() - start
+        att = self.connection.recv_match(
+            type="ATTITUDE", blocking=True, timeout=max(0, 1 - elapsed)
+        )
+        if not att:
+            return False, None
+
+        time_since_boot = max(lpn.time_boot_ms, att.time_boot_ms)
+        data = TelemetryData(
+            time_since_boot=time_since_boot,
+            x=lpn.x,
+            y=lpn.y,
+            z=lpn.z,
+            x_velocity=lpn.vx,
+            y_velocity=lpn.vy,
+            z_velocity=lpn.vz,
+            roll=att.roll,
+            pitch=att.pitch,
+            yaw=att.yaw,
+            roll_speed=att.rollspeed,
+            pitch_speed=att.pitchspeed,
+            yaw_speed=att.yawspeed,
+        )
+        return True, data
 
 
 # =================================================================================================

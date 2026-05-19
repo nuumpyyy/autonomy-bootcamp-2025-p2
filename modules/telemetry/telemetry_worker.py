@@ -18,13 +18,15 @@ from ..common.modules.logger import logger
 # =================================================================================================
 def telemetry_worker(
     connection: mavutil.mavfile,
-    args,  # Place your own arguments here
-    # Add other necessary worker arguments here
+    output_queue: queue_proxy_wrapper.QueueProxyWrapper,
+    controller: worker_controller.WorkerController,
 ) -> None:
     """
     Worker process.
 
-    args... describe what the arguments are
+    connection is the MAVLink connection for communication between workers.
+    output_queue is the data queue.
+    controller is how the main process communicates to this worker process.
     """
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -47,8 +49,20 @@ def telemetry_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (telemetry.Telemetry)
+    telemetry_instance = telemetry.Telemetry.create(connection, local_logger)
 
     # Main loop: do work.
+    while not controller.is_exit_requested():
+        # block worker if pause has been requested
+        controller.check_pause()
+
+        ret, data = telemetry_instance.run()
+
+        if not ret:
+            local_logger.warning("Telemetry timeout, restarting")
+            continue
+
+        output_queue.queue.put(data)
 
 
 # =================================================================================================

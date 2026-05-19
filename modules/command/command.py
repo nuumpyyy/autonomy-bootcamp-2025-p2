@@ -56,6 +56,9 @@ class Command:  # pylint: disable=too-many-instance-attributes
         assert key is Command.__private_key, "Use create() method"
 
         # Do any intializiation here
+        self.connection = connection
+        self.target = target
+        self.local_logger = local_logger
 
     def run(
         self,

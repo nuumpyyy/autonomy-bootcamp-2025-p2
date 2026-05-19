@@ -1,0 +1,5 @@
+12:15:13: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 46] Logger initialized
+12:15:18: [WARNING] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 62] Telemetry timeout, restarting
+12:15:20: [WARNING] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 62] Telemetry timeout, restarting
+12:15:21: [WARNING] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 62] Telemetry timeout, restarting
+12:15:26: [WARNING] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 62] Telemetry timeout, restarting
