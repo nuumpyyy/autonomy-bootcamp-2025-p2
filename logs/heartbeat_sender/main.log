@@ -1,2 +1,2 @@
-14:07:12: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/modules/common/modules/logger/logger_main_setup.py | setup_main_logger | 62] main logger initialized
-14:07:12: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_sender.py | main | 88] Connected!
+11:15:40: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/modules/common/modules/logger/logger_main_setup.py | setup_main_logger | 62] main logger initialized
+11:15:40: [INFO] [/home/parmidawang/personal/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_sender.py | main | 86] Connected!
