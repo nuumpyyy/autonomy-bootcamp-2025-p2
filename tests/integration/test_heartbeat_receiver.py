@@ -3,6 +3,7 @@ Test the heartbeat reciever worker with a mocked drone.
 """
 
 import multiprocessing as mp
+import queue
 import subprocess
 import threading
 
@@ -67,7 +68,7 @@ def read_queue(
         try:
             status = output_queue.queue.get(timeout=0.1)
             main_logger.info(f"Status: {status}", True)
-        except Exception:
+        except queue.Empty:
             pass
 
 

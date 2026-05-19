@@ -4,6 +4,7 @@ Test the command worker with a mocked drone.
 
 import math
 import multiprocessing as mp
+import queue
 import subprocess
 import threading
 import time
@@ -72,7 +73,7 @@ def read_queue(
         try:
             status = output_queue.queue.get(timeout=0.1)
             main_logger.info(f"Status: {status}", True)
-        except Exception:
+        except queue.Empty:
             pass
 
 
