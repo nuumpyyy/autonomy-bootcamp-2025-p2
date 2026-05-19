@@ -18,7 +18,9 @@ class HeartbeatReceiver:
     __private_key = object()
 
     @classmethod
-    def create(cls, connection: mavutil.mavfile, local_logger: logger.Logger) -> "HeartbeatReceiver":
+    def create(
+        cls, connection: mavutil.mavfile, local_logger: logger.Logger
+    ) -> "HeartbeatReceiver":
         """
         Falliable create (instantiation) method to create a HeartbeatReceiver object.
         """
