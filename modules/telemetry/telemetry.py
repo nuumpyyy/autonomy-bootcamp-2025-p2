@@ -77,7 +77,7 @@ class Telemetry:
         cls,
         connection: mavutil.mavfile,
         local_logger: logger.Logger,
-    ):
+    ) -> "Telemetry":
         """
         Falliable create (instantiation) method to create a Telemetry object.
         """
@@ -95,7 +95,7 @@ class Telemetry:
         self.connection = connection
         self.local_logger = local_logger
 
-    def run(self):
+    def run(self) -> "tuple[bool, TelemetryData | None]":
         """
         Receive LOCAL_POSITION_NED and ATTITUDE messages from the drone,
         combining them together to form a single TelemetryData object.
