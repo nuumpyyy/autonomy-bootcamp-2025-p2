@@ -52,6 +52,11 @@ def heartbeat_receiver_worker(
     ret, heartbeat_receiver_instance = heartbeat_receiver.HeartbeatReceiver.create(
         connection, local_logger
     )
+
+    if not ret:
+        local_logger.error("Failed to instantiate HeartbeatReceiver object", True)
+        return
+
     missed = 0  # number of missed heartbeats
 
     # Main loop: do work.

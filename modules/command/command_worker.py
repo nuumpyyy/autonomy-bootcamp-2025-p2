@@ -55,6 +55,10 @@ def command_worker(
     # Instantiate class object (command.Command)
     ret, command_instance = command.Command.create(connection, target, local_logger)
 
+    if not ret:
+        local_logger.error("Failed to instantiate Command object", True)
+        return
+
     # Main loop: do work.
     while not controller.is_exit_requested():
         # block worker if pause has been requested

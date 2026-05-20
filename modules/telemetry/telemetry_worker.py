@@ -51,6 +51,10 @@ def telemetry_worker(
     # Instantiate class object (telemetry.Telemetry)
     r, telemetry_instance = telemetry.Telemetry.create(connection, local_logger)
 
+    if not r:
+        local_logger.error("Failed to instantiate Telemetry object", True)
+        return
+
     # Main loop: do work.
     while not controller.is_exit_requested():
         # block worker if pause has been requested
