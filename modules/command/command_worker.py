@@ -53,7 +53,7 @@ def command_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (command.Command)
-    command_instance = command.Command.create(connection, target, local_logger)
+    ret, command_instance = command.Command.create(connection, target, local_logger)
 
     # Main loop: do work.
     while not controller.is_exit_requested():
